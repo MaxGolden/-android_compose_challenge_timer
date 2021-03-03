@@ -6,4 +6,7 @@
     <string name="action_dismiss">Dismiss</string>
     <string name="action_restart">Restart</string>
     <string name="cd_more">More</string>
+
+    <string name="notification_description">Time up reminder</string>
+    <string name="notification_channel_name">Timer Max Notification</string>
 </resources>

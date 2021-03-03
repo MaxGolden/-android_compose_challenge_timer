@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.maxcomposetimer.R
 import com.example.maxcomposetimer.ui.theme.TimerMaxTheme
+import com.example.maxcomposetimer.util.setElapsedTime
 import dev.chrisbanes.accompanist.insets.statusBarsPadding
 
 @Composable
@@ -30,7 +31,17 @@ fun TimerMain(
             .statusBarsPadding()
     ) {
         TimerAppBar()
+        TimerText(90L)
     }
+}
+
+@Composable
+fun TimerText(
+    timerCount: Long
+) {
+    Text(
+        modifier = Modifier.padding(16.dp),
+        text = setElapsedTime(timerCount))
 }
 
 @Composable

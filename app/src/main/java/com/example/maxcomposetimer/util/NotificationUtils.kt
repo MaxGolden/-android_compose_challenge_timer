@@ -11,7 +11,7 @@ import com.example.maxcomposetimer.receiver.DismissReceiver
 import com.example.maxcomposetimer.receiver.RestartReceiver
 
 private const val NOTIFICATION_ID = 0
-private const val TIMER_NOTIFICATION_CHANNEL_ID = "TIMER_CHANNEL"
+const val TIMER_NOTIFICATION_CHANNEL_ID = "TIMER_CHANNEL"
 private const val REQUEST_CODE = 0
 private const val FLAGS = 0
 
