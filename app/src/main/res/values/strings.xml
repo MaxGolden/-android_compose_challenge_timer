@@ -5,4 +5,5 @@
     <string name="notification_title">MaxTimer</string>
     <string name="action_dismiss">Dismiss</string>
     <string name="action_restart">Restart</string>
+    <string name="cd_more">More</string>
 </resources>
