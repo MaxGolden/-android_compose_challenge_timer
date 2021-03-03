@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Max Timer</string>
+
+    <string name="time_up_msg">Time\'s up</string>
+    <string name="notification_title">MaxTimer</string>
+    <string name="action_dismiss">Dismiss</string>
+    <string name="action_restart">Restart</string>
+</resources>
