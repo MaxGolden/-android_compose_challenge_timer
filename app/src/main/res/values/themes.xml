@@ -14,6 +14,11 @@
         <item name="android:navigationBarColor">@color/nav_bar</item>
     </style>
 
+    <style name="Theme.MaxComposeTimer.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="Theme.Material.DayNight.NoActionBar" parent="@android:style/Theme.Material.Light.NoActionBar" />
 
 </resources>

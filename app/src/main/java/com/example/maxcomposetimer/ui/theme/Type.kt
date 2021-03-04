@@ -1,6 +1,7 @@
 package com.example.maxcomposetimer.ui.theme
 
 import androidx.compose.material.Typography
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -65,7 +66,8 @@ val typography = typographyFromDefaults(
     ),
     button = TextStyle(
         fontFamily = fonts,
-        fontWeight = FontWeight.Bold
+        fontWeight = FontWeight.Bold,
+        color = Color.Magenta,
     ),
     caption = TextStyle(
         fontFamily = fonts

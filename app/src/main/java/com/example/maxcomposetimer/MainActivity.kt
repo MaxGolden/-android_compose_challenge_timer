@@ -5,24 +5,16 @@ import android.app.NotificationManager
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.primarySurface
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.ui.Modifier
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
-import com.example.adopuppymax.ui.utils.LocalBackDispatcher
-import com.example.maxcomposetimer.ui.theme.TimerMaxTheme
-import com.example.maxcomposetimer.ui.timerMain.TimerMain
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import com.example.maxcomposetimer.databinding.MainContentBinding
+import com.example.maxcomposetimer.util.FragmentViewBinding
 import com.example.maxcomposetimer.util.TIMER_NOTIFICATION_CHANNEL_ID
-import dev.chrisbanes.accompanist.insets.ProvideWindowInsets
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -30,8 +22,9 @@ class MainActivity : ComponentActivity() {
             TIMER_NOTIFICATION_CHANNEL_ID,
             getString(R.string.notification_channel_name)
         )
+
         setContent {
-            TimerApp(onBackPressedDispatcher)
+            FragmentViewBinding(MainContentBinding::inflate)
         }
     }
 
@@ -55,20 +48,13 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-}
+    override fun onSupportNavigateUp(): Boolean {
+        return findNavController().navigateUp() || super.onSupportNavigateUp()
+    }
 
-@Composable
-fun TimerApp(backDispatcher: OnBackPressedDispatcher) {
-    CompositionLocalProvider(LocalBackDispatcher provides backDispatcher) {
-        ProvideWindowInsets {
-            TimerMaxTheme {
-                Scaffold(
-                    backgroundColor = MaterialTheme.colors.primarySurface
-                ) {
-                    val modifier = Modifier.padding(it)
-                    TimerMain(modifier)
-                }
-            }
-        }
+    private fun findNavController(): NavController {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        return navHostFragment.navController
     }
 }
