@@ -5,4 +5,13 @@
     <string name="notification_title">MaxTimer</string>
     <string name="action_dismiss">Dismiss</string>
     <string name="action_restart">Restart</string>
+    <string name="cd_more">More</string>
+
+    <string name="notification_description">Time up reminder</string>
+    <string name="notification_channel_name">Timer Max Notification</string>
+
+    <string name="start">Start</string>
+    <string name="pause">Pause</string>
+    <string name="resume">Resume</string>
+    <string name="cancel">Cancel</string>
 </resources>

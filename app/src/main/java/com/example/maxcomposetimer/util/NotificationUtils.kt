@@ -8,12 +8,10 @@ import androidx.core.app.NotificationCompat
 import com.example.maxcomposetimer.MainActivity
 import com.example.maxcomposetimer.R
 import com.example.maxcomposetimer.receiver.DismissReceiver
-import com.example.maxcomposetimer.receiver.RestartReceiver
 
 private const val NOTIFICATION_ID = 0
-private const val TIMER_NOTIFICATION_CHANNEL_ID = "TIMER_CHANNEL"
+const val TIMER_NOTIFICATION_CHANNEL_ID = "TIMER_CHANNEL"
 private const val REQUEST_CODE = 0
-private const val FLAGS = 0
 
 fun NotificationManager.sendTimerNotification(messageBody: String, context: Context) {
 
@@ -24,14 +22,6 @@ fun NotificationManager.sendTimerNotification(messageBody: String, context: Cont
         NOTIFICATION_ID,
         contentIntent,
         PendingIntent.FLAG_UPDATE_CURRENT
-    )
-
-    val restartIntent = Intent(context, RestartReceiver::class.java)
-    val restartPendingIntent: PendingIntent = PendingIntent.getBroadcast(
-        context,
-        REQUEST_CODE,
-        restartIntent,
-        FLAGS
     )
 
     val dismissIntent = Intent(context, DismissReceiver::class.java)
@@ -48,11 +38,6 @@ fun NotificationManager.sendTimerNotification(messageBody: String, context: Cont
         .setContentText(messageBody)
         .setContentIntent(contentPendingIntent)
         .setAutoCancel(true)
-        .addAction(
-            R.drawable.ic_timer_black_24dp,
-            context.getString(R.string.action_restart),
-            restartPendingIntent
-        )
         .addAction(
             R.drawable.ic_timer_black_24dp,
             context.getString(R.string.action_dismiss),
